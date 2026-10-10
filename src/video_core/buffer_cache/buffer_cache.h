@@ -373,6 +373,8 @@ private:
     size_t next_resident_hint{};
     vk::DeviceMemory residency_chunk{};
     u64 residency_chunk_used{};
+    /// Device memory allocated for residency so far, for the log when an allocation fails.
+    u64 residency_allocated_bytes{};
 
     u32 arena_memory_type_index{};
     u32 block_size{};

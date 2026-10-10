@@ -34,6 +34,10 @@ class TextureCache {
     static constexpr s64 DEFAULT_PRESSURE_GC_MEMORY = 1_GB + 512_MB;
     static constexpr s64 DEFAULT_CRITICAL_GC_MEMORY = 3_GB;
     static constexpr s64 TARGET_GC_THRESHOLD = 8_GB;
+    /// Cards with a budget up to this get an earlier collector, see the constructor.
+    static constexpr s64 SMALL_CARD_MEMORY = 6_GB;
+    /// Room the collector tries to leave for memory the buffer cache makes resident.
+    static constexpr s64 RESIDENCY_HEADROOM = 1_GB;
 
     struct BucketEntry {
         u32 key;
@@ -279,6 +283,11 @@ public:
 
     /// Runs the garbage collector.
     void RunGarbageCollector();
+
+    /// Frees the images that have not been used for a while, without the collector's limits on how
+    /// many go, for an allocation that failed for lack of device memory. GPU thread. Returns
+    /// whether any image was freed. The memory is released once the GPU is done with the images.
+    bool ReleaseMemoryForAllocation();
 
     /// Calls func for every image starting at the address that ForEachImageInRegion would report
     /// for the region, in the same order. Such images are all listed in the page the address is

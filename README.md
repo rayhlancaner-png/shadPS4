@@ -53,26 +53,8 @@ This repository and branch is a custom build of shadPS4 focused on providing ded
 - **Vblank Frequency:** Must be configured according to your desired target framerate.
 
 ---
+VRAM FIX FOR 4GB VRAM
 
-### Özel Sürüm Bilgisi (inFAMOUS Yüksek FPS Build)
-
-Bu repo ve branch, **inFAMOUS Second Son** ve **inFAMOUS First Light** oyunlarını yüksek kare hızında oynamayı sağlayan düzeltmelerin (fixler) yanı sıra çeşitli grafiksel sorunları gideren ve renk düzeltmeleri içeren özel bir derlemedir (custom build).
-
-- **Geliştiriciler:** Eye Of The Ruins, 0xDeftones
-
-> [!NOTE]
-> Çeşitli buglar ve hatalar halen mevcut olabilir, ancak bu derlemenin temel amacı yüksek performans sağlamaktır.
->
-> Daha önce shader compile olmamış durumlar ilk başta kasmaya ve takılmalara yol açabilir, fakat shader compile oldukça oyun çok daha akıcı hale gelecektir. Bu sebeple karşılaşılabilecek olası takılmalar emülatörün kendi shader compile işlemi ile alakalıdır.
-
-#### Önerilen Ayarlar
-
-- **FSR:** Kesinlikle açılmamalı, grafiksel bozulmalara yol açıyor.
-- **Debug:**
-  - **Readbacks Mode:** Değeri `Precise` olmalı.
-  - **Enable Direct Memory Access:** Açık olmalı.
-  - **Enable Shader Cache:** Açık olmalı.
-- **Vblank Frequency:** İstenilen kare hızına göre ayarlanmış olmalı.
 
 ---
 
